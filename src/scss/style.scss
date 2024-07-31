@@ -18,7 +18,8 @@
 //</Swiper>=================================
 
 //<Шрифт по умолчанию>=================================
-$fontFamily: "gilroy";
+$fontFamily: "Gilroy";
+$fontSize: 16;
 //</Шрифт по умолчанию>=================================
 
 //</ШРИФТЫ>=================================
@@ -26,19 +27,23 @@ $fontFamily: "gilroy";
 //<ПЕРЕМЕННЫЕ>=================================
 $minWidth: 320;
 $maxWidth: 1440; //ширина полотна
-$maxWidthContainer: 1070; //ограничивающий контейнер 1040 +30 pading
+$maxWidthContainer: 1270; //ограничивающий контейнер 1240 +30 pading
 $md1: $maxWidthContainer; //1092px
 $md2: 991.98;
 $md3: 767.98;
 $md4: 639.98;
 $md5: 479.98;
+
+$mainColor: #3a3a3a;
+$orangeColor: #e89f71;
+$grayColor: #898989;
+$darkGrayColor: #616161;
 //</ПЕРЕМЕННЫЕ>=================================
 
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=================================
 @import "null";
 body {
-	color: #616161;
-	font-size: 12px;
+	color: $mainColor;
 	&._lock {
 		overflow: hidden;
 	}
@@ -62,12 +67,12 @@ body {
 	max-width: $maxWidthContainer + px;
 	margin: 0px auto;
 	padding: 0px 15px;
-	@media (max-width: ($md3+px)) {
-		padding: 0 10px;
-	}
-	@media (max-width: ($md4+px)) {
-		padding: 0px 5px;
-	}
+	// @media (max-width: ($md3+px)) {
+	// 	padding: 0 10px;
+	// }
+	// @media (max-width: ($md4+px)) {
+	// 	padding: 0px 5px;
+	// }
 }
 //</ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР>=================================
 
