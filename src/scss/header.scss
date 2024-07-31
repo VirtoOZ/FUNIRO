@@ -1,0 +1,58 @@
+/*//<ШАБЛОН_BURGER>=================================
+.menu__icon {
+   //Родительский блок бургера
+   z-index: 5; //На передний план
+   display: block;
+   position: relative;
+   width: 30px;
+   height: 18px;
+   cursor: pointer; //чтобы было понятно, что на него можно кликнуть
+}
+.menu__icon span, //Это средняя полоса - Котлетка :)
+.menu__icon::before,//Это верхняя полоса - верхняя булочка :)
+.menu__icon::after {
+   //Это нижняя полоса - нижняя булочка :)
+   left: 0;
+   position: absolute; //позиционируем относительно родителя(menu__icon)
+   width: 100%;
+   height: 10%;
+   background-color: #fff;
+
+   transition: all 0.3s ease 0s;
+   -webkit-transition: all 0.3s ease 0s;
+   -moz-transition: all 0.3s ease 0s;
+   -ms-transition: all 0.3s ease 0s;
+   -o-transition: all 0.3s ease 0s;
+}
+.menu__icon::before,
+.menu__icon::after {
+   content: ""; //для работы псевда
+}
+.menu__icon::before {
+   //Расположение булок
+   top: 0;
+}
+.menu__icon::after {
+   //Расположение булок
+   bottom: 0;
+}
+.menu__icon span {
+   //Расположение котлетки
+   top: 50%; //Центр опущен от верха на 50%
+   transform: scale(1) translate(0, -50%);
+}
+.menu__icon._active span {
+   //после нажатия котлета
+   transform: scale(0) translate(0, -50%); //пропадает уменьшаясь и смещается вверх на 50%
+}
+.menu__icon._active::before {
+   //после нажатия верхняя булка
+   top: 50%; //центр сдвигается на пол высоты вниз
+   transform: rotate(-45deg) translate(0, -50%); //поворачивается на 45 против часовой и сдвигается начало вверх на 50%
+}
+.menu__icon._active::after {
+   bottom: 50%; //центр сдвигается на пол высоты вниз
+   transform: rotate(45deg) translate(0, 50%); //поворачивается на 45 по часовой и сдвигает начало вниз на 50%
+}
+//</ШАБЛОН_BURGER>=================================
+*/
