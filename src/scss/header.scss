@@ -1,10 +1,104 @@
 .header {
+	// .header__wrapper
+	&__wrapper {
+	}
 	// .header__container
 	&__container {
 	}
+	// .header__body
+	&__body {
+		min-height: 125px;
+		display: flex;
+	}
+	// .header__main
+	&__main {
+		flex: 0 0 40%;
+		display: flex;
+	}
+	// .header__logo
+	&__logo {
+		font-size: 18px;
+		font-weight: 700;
+		color: #000;
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__search
+	&__search {
+	}
+	// .header__actions
+	&__actions {
+	}
 }
+~
 //======================================================================
 .menu {
+	// .menu__body
+	&__body {
+	}
+	// .menu__list
+	&__list {
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+	}
+	// .menu__arrow
+	&__arrow {
+	}
+	// .menu__sub-list
+	&__sub-list {
+	}
+	// .menu__sub-item
+	&__sub-item {
+	}
+	// .menu__sub-link
+	&__sub-link {
+	}
+}
+//======================================================================
+.search-form {
+	// .search-form__icon
+	&__icon {
+	}
+	// .search-form__item
+	&__item {
+	}
+	// .search-form__btn
+	&__btn {
+	}
+	// .search-form__input
+	&__input {
+	}
+}
+//======================================================================
+.actions-header {
+	// .actions-header__item
+	&__item {
+		// .actions-header__item_favorite
+		&_favorite {
+		}
+		// .actions-header__item_user
+		&_user {
+		}
+	}
+}
+//======================================================================
+.cart-header {
+	// .cart-header__icon
+	&__icon {
+	}
+	// .cart-header__body
+	&__body {
+	}
+	// .cart-header__list
+	&__list {
+	}
+}
+.cart-list {
 }
 //======================================================================
 //<BURGER>======================================================================
