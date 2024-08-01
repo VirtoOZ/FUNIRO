@@ -36,7 +36,8 @@ import { _slideDown } from "./functions.js";
 //SlideToggLe
 import { _slideToggle } from "./functions.js";
 //</ANIM-SLIDE>================================================================
-
+import { iBg } from "./functions.js";
+iBg();
 //<isMobile>================================================================
 //Проверка на каком устройстве работаем
 import { isMobile } from "./functions.js";

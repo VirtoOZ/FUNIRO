@@ -17,7 +17,7 @@ export const path = {
 	// объект путей к исходным файлам
 	src: {
 		js: `${srcFolder}/js/app.js`, //путь к папке c файлом стилей
-		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`, //путь к папке c файлом стилей
+		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico}`, //путь к папке c файлом стилей
 		svg: `${srcFolder}/img/**/*.svg`, //путь к папке c файлом стилей
 		svgicons: `${srcFolder}/svgicons/*.svg`, //путь к папке c файлом стилей
 		scss: `${srcFolder}/scss/style.scss`, //путь к папке c файлом стилей
