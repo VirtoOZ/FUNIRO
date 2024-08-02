@@ -1,3 +1,25 @@
+window.onload = function () { //когда весь контент загрузится
+	document.addEventListener("click", documentActions);
+
+	// Actions (делигирование события click)
+	function documentActions(e) {
+		const targetElement = e.target; // кладем в переменную нажатый объект
+		if (window.innerWidth > 768 && isMobile.any()) { // если ширина окна меньше 768 и это мобилка
+			if (targetElement.classList.contains('menu__arrow')) {
+				targetElement.closest('.menu__item').classList.toggle('_hover');
+			}
+			if (!targetElement.closest('.menu__item') && document.querySelectorAll('.menu__item._hover').length > 0) {
+				_removeClasses(document.querySelectorAll('.menu__item._hover'), '_hover');
+				function _removeClasses(object, classToRemove) {
+					for (let index = 0; index < object.length; index++) {
+						const element = object[index];
+						element.classList.remove(classToRemove);
+					}
+				}
+			}
+		}
+	}
+}
 //<BURGER>=================================
 const iconMenu = document.querySelector('.menu__icon');//находим класс menu__icon
 const menuBody = document.querySelector('.menu__body');//находим класс menu__body
