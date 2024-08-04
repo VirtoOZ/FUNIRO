@@ -10,16 +10,25 @@ window.onload = function () { //когда весь контент загруз�
 			}
 			if (!targetElement.closest('.menu__item') && document.querySelectorAll('.menu__item._hover').length > 0) {
 				_removeClasses(document.querySelectorAll('.menu__item._hover'), '_hover');
-				function _removeClasses(object, classToRemove) {
-					for (let index = 0; index < object.length; index++) {
-						const element = object[index];
-						element.classList.remove(classToRemove);
-					}
-				}
 			}
+		}
+		if (targetElement.classList.contains('search-form__icon')) {
+			document.querySelector('.search-form').classList.toggle('_active');
+		} else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+			document.querySelector('.search-form').classList.remove('_active');
+
 		}
 	}
 }
+//======================================================================
+function _removeClasses(object, classToRemove) {
+	for (let index = 0; index < object.length; index++) {
+		const element = object[index];
+		element.classList.remove(classToRemove);
+	}
+}
+//======================================================================
+
 //<BURGER>=================================
 const iconMenu = document.querySelector('.menu__icon');//находим класс menu__icon
 const menuBody = document.querySelector('.menu__body');//находим класс menu__body
