@@ -30,13 +30,13 @@ function _removeClasses(object, classToRemove) {
 //======================================================================
 
 //<BURGER>=================================
-const iconMenu = document.querySelector('.menu__icon');//находим класс menu__icon
+const iconMenu = document.querySelector('.icon-menu');//находим класс icon-menu
 const menuBody = document.querySelector('.menu__body');//находим класс menu__body
 const headerBody = document.querySelector('.header__body');//находим класс menu__body
-if (iconMenu) {//Проверяем есть ли menu__icon
+if (iconMenu) {//Проверяем есть ли icon-menu
 	iconMenu.addEventListener("click", function (e) {//вещам событие при клике мыши
 		document.body.classList.toggle('_lock');//Для Body даем класс Lock для отключения прокрутки
-		iconMenu.classList.toggle('_active');//добавляем класс active menu__icon
+		iconMenu.classList.toggle('_active');//добавляем класс active icon-menu
 		menuBody.classList.toggle('_active');//добавляем класс active menu__body
 		headerBody.classList.toggle('_active');//добавляем класс active menu__body
 		// _slideToggle(menuBody, 500);

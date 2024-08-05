@@ -525,7 +525,7 @@ if (spollersArray.length > 0) {
 			spollerTitles.forEach((spollerTitle) => {
 				if (hideSpollerBody) {
 					spollerTitle.removeAttribute('tabindex');
-					if (!spollerTitle.classList.contains('active')) {
+					if (!spollerTitle.classList.contains('_active')) {
 						spollerTitle.nextElementSibling.hidden = true;
 					}
 				} else {
@@ -543,10 +543,10 @@ if (spollersArray.length > 0) {
 			const spollersBlock = spollerTitle.closest('[data-spollers]');
 			const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false; //проверяем наличие атрибута
 			if (!spollersBlock.querySelectorAll('._slide').length) {
-				if (oneSpoller && !spollerTitle.classList.contains('active')) {
+				if (oneSpoller && !spollerTitle.classList.contains('_active')) {
 					hideSpollersBody(spollersBlock);
 				}
-				spollerTitle.classList.toggle('active');
+				spollerTitle.classList.toggle('_active');
 				_slideToggle(spollerTitle.nextElementSibling, 500);
 			}
 			e.preventDefault();
@@ -554,9 +554,9 @@ if (spollersArray.length > 0) {
 	}
 
 	function hideSpollersBody(spollersBlock) {
-		const spollerActiveTitle = spollersBlock.querySelector('[data-spoller].active');
+		const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._active');
 		if (spollerActiveTitle) {
-			spollerActiveTitle.classList.remove('active');
+			spollerActiveTitle.classList.remove('_active');
 			_slideUp(spollerActiveTitle.nextElementSibling, 500);
 		}
 	}
