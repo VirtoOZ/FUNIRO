@@ -12,5 +12,6 @@ import './files/script.js';
 import './files/forms.js';
 import './files/functions.js';
 // import './libs/swiper-bundle.min.js';
+import './files/popup.js';
 // import './files/regular.js';
 //======================================================================

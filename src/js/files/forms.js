@@ -59,7 +59,9 @@ if (forms.length > 0) {
 				//SendForm
 				form_clean(form);
 				if (message) {
-					popup_open('message-' + message);
+					// console.log(message + '-message');
+					topopUp(message + '-message');
+					// popupOpen('message-' + message);
 					e.preventDefault();
 				}
 				form.classList.add('_sending');
@@ -271,6 +273,8 @@ for (let index = 0; index < viewPass.length; index++) {
 		element.classlist.toggle('_active');
 	});
 }
+import { topopUp } from "../files/popup.js";
+// import { popupOpen } from "../files/popup.js";
 //</FORM>======================================================================
 
 //<SELECT>======================================================================
