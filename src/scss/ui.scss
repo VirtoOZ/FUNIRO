@@ -1,29 +1,31 @@
 //<ОСНОВНОЙ БЛОК>=================================
-// ._arrow
-._arrow {
-	width: 43px;
-	height: 33px;
-	background: url("../img/icons/popular/sl_arrow-right-green.svg") center / contain no-repeat;
-	cursor: pointer;
-	@media (min-width: ($md2+px)) {
-		&:hover {
-			transform: rotate(-180deg);
-			background: url("../img/icons/products/arrow_orange.png") center / contain no-repeat;
-		}
-	}
+._footer-title {
 }
-// ._arrow-next
-._arrow_next {
-}
-// ._arrow-prev
-._arrow_prev {
-	transform: rotate(-180deg);
-	@media (min-width: ($md2+px)) {
-		&:hover {
-			transform: rotate(0deg);
-		}
-	}
-}
+// // ._arrow
+// ._arrow {
+// 	width: 43px;
+// 	height: 33px;
+// 	background: url("../img/icons/popular/sl_arrow-right-green.svg") center / contain no-repeat;
+// 	cursor: pointer;
+// 	@media (min-width: ($md2+px)) {
+// 		&:hover {
+// 			transform: rotate(-180deg);
+// 			background: url("../img/icons/products/arrow_orange.png") center / contain no-repeat;
+// 		}
+// 	}
+// }
+// // ._arrow-next
+// ._arrow_next {
+// }
+// // ._arrow-prev
+// ._arrow_prev {
+// 	transform: rotate(-180deg);
+// 	@media (min-width: ($md2+px)) {
+// 		&:hover {
+// 			transform: rotate(0deg);
+// 		}
+// 	}
+// }
 //</ОСНОВНОЙ БЛОК>=================================
 
 //<ГОТОВЫЕ КЛАССЫ>=================================
