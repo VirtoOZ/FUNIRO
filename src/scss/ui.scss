@@ -1,6 +1,6 @@
 //<ОСНОВНОЙ БЛОК>=================================
 ._footer-title {
-	@include adaptiv-value("font-size", 24, 20, 1);
+	@include adaptiv-value("font-size", 23, 19, 1);
 	line-height: calc((29 / 24) * 100%);
 	color: #000;
 	font-weight: 700;
