@@ -20,7 +20,7 @@ export const path = {
 	src: {
 		favicon: `${srcFolder}/img/favicon.{jpg,jpeg,png,gif,ico,webp}`, //путь к папке c файлом стилей
 		html: `${srcFolder}/*.html`, //путь к папке в которой есть файлы html
-		js: [`${srcFolder}/js/app.js`, `${srcFolder}/js/vendors.js`], //путь к папке c файлом стилей
+		js: [`${srcFolder}/js/vendors.js`, `${srcFolder}/js/app.js`], //путь к папке c файлом стилей
 		scss: `${srcFolder}/scss/style.scss`, //путь к папке c файлом стилей
 		images: [`${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico}`, `!**/favicon.*`], //путь к папке c файлом стилей
 		fonts: `${srcFolder}/fonts/*.ttf`, //путь к папке которую хотим копировать

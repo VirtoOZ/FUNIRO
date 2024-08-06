@@ -14,7 +14,7 @@
 //</Иконочные шрифты>=================================
 
 //<Swiper>=================================
-// @import "swiper-bundle";
+@import "swiper";
 //</Swiper>=================================
 
 //<Шрифт по умолчанию>=================================
@@ -93,15 +93,80 @@ body {
 //<ОСНОВНОЙ БЛОК>=================================
 .page {
 	flex: 1 1 auto;
-	// .page__container
-	&__container {
-		@media (min-width: ($md2+px)) {
-		}
-	}
-	// .page__content
-	&__content {
+	// .page__main-slider
+	&__main-slider {
 	}
 }
+.main-slider {
+	// .main-slider__container
+	&__container {
+	}
+	// .main-slider__body
+	&__body {
+	}
+	// .main-slider__content
+	&__content {
+	}
+	// .main-slider__slider
+	&__slider {
+	}
+}
+.content-main {
+	// .content-main__title
+	&__title {
+	}
+	// .content-main__text
+	&__text {
+	}
+	// .content-main__button
+	&__button {
+	}
+}
+.slider-main {
+	// .slider-main__controls
+	&__controls {
+	}
+	// .slider-main__body
+	&__body {
+	}
+	// .slider-main__slide
+	&__slide {
+	}
+	// .slider-main__image
+	&__image {
+	}
+	// .slider-main__content
+	&__content {
+	}
+	// .slider-main__title
+	&__title {
+	}
+	// .slider-main__text
+	&__text {
+	}
+	// .slider-main__price
+	&__price {
+	}
+}
+.controls-slider-main {
+	// .controls-slider-main__dotts
+	&__dotts {
+	}
+	// .controls-slider-main__arrows
+	&__arrows {
+	}
+}
+.slider-arrows {
+}
+.slider-arrow {
+	// .slider-arrow_prev
+	&_prev {
+	}
+	// .slider-arrow_next
+	&_next {
+	}
+}
+
 //<ХЛЕБНЫЕ КРОШКИ>======================================================================
 /* .breadcrumbs {
 	overflow: auto;
@@ -135,5 +200,4 @@ body {
 } */
 //</ХЛЕБНЫЕ КРОШКИ>======================================================================
 
-//======================================================================
 //</ОСНОВНОЙ БЛОК>======================================================================
