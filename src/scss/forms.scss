@@ -95,40 +95,35 @@
 //</FORM ()>======================================================================
 
 //<BUTTON (a.btn+tab)>======================================================================
-/* .btn {
+.btn {
 	display: inline-flex;
-	padding: 0px 25px;
+	padding: 0px 15px;
 	justify-content: center;
 	align-items: center;
-	height: 39px;
+	min-height: 48px;
 	// object-fit: contain;
-	background-color: #f68038;
-	color: #fff;
-	transition: all 0.5s ease 0s;
-	text-transform: uppercase;
-	font-weight: 900;
-	font-size: 12px;
+	// background-color: #f68038;
+	// color: #fff;
+	transition: all 0.3s ease 0s;
+	// text-transform: uppercase;
+	// font-weight: 900;
+	// font-size: 12px;
 	// line-height: 18px;
-	@media (min-width: 992px) {
-		&:hover {
-			background-color: #b86029;
-			color: #fff;
-		}
-	}
-	// .btn_gray
-	&_gray {
-		background-color: #e6e6e6;
-		color: #666;
-		@media (min-width: ($md2+px)) {
-			&:hover {
-				background-color: #a1a1a1;
-			}
-		}
-	}
-	&._fw {
-		width: 100%;
-	}
-} */
+
+	// 	// .btn_gray
+	// 	&_gray {
+	// 		background-color: #e6e6e6;
+	// 		color: #666;
+	// 		@media (min-width: ($md2+px)) {
+	// 			&:hover {
+	// 				background-color: #a1a1a1;
+	// 			}
+	// 		}
+	// 	}
+	// 	&._fw {
+	// 		width: 100%;
+	// 	}
+}
 //</BUTTON()>======================================================================
 
 //<SELECT (sel+tab)>======================================================================

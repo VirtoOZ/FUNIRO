@@ -5,6 +5,47 @@
 	color: #000;
 	font-weight: 700;
 }
+.slider-arrows {
+	display: grid;
+	grid-template-columns: repeat(2, 48px);
+	column-gap: 8px;
+}
+.slider-arrow {
+	border-radius: 50%;
+	height: 48px;
+	background-color: rgba(232, 159, 113, 0.3);
+	color: $orangeColor;
+	font-size: 12px;
+	transition: all 0.3s ease 0s;
+	// .slider-arrow_prev
+	&_prev {
+		&::before {
+			transform: rotate(90deg);
+		}
+	}
+	// .slider-arrow_next
+	&_next {
+		&::before {
+			transform: rotate(-90deg);
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: rgba(232, 159, 113, 1);
+			color: #fff;
+		}
+	}
+	&_whit {
+		box-shadow: 0 4px 14px 1px rgba(0, 0, 0, 0.16);
+		background-color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $orangeColor;
+				color: #fff;
+			}
+		}
+	}
+}
 // // ._arrow
 // ._arrow {
 // 	width: 43px;

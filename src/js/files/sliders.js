@@ -1,4 +1,4 @@
-import Swiper from 'Swiper';
+import Swiper from '../libs/swiper-bundle.js';
 
 //<BILD-SWIPER>======================================================================
 let sliders = document.querySelectorAll('._swiper');
@@ -72,13 +72,13 @@ if (document.querySelector('.slider-main__body')) {
 	let mainSwiper = new Swiper('.slider-main__body', {
 		observer: true,
 		observeParents: true,
-		slidesPerView: 1,
+		slidesPerView: 0,
 		spaceBetween: 32,
 		// autoHeight: true,
 		watchOverflow: true,
 		speed: 800,
 		loop: true,
-		loopAdditionalSlides: 5,
+		// loopAdditionalSlides: 1,
 		preloadImages: false,
 		parallax: true,
 		// Dotts

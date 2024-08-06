@@ -9,7 +9,7 @@ import * as flsFunctions from './modules/functions.js'
 // import './files/dynamic_adapt.js';
 import './files/forms.js';
 import './files/functions.js';
-// import './libs/swiper-bundle.min.js';
+import './libs/swiper-bundle.js';
 import './files/sliders.js';
 import './files/script.js';
 import './files/popup.js';

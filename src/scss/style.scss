@@ -11,10 +11,13 @@
 
 //<Иконочные шрифты>=================================
 @import "icons";
+
 //</Иконочные шрифты>=================================
 
 //<Swiper>=================================
-@import "swiper";
+@import "swiper-bundle";
+// @import "swiper";
+
 //</Swiper>=================================
 
 //<Шрифт по умолчанию>=================================
@@ -98,28 +101,98 @@ body {
 	}
 }
 .main-slider {
+	background-color: #fcf8f3;
 	// .main-slider__container
 	&__container {
+		position: relative;
+		z-index: 1;
+		@media (min-width: ($md2+px)) {
+			&::before {
+				content: "";
+				top: 0;
+				right: 376px;
+				width: 100vw;
+				height: 100%;
+				position: absolute;
+				background-color: #f9f1e7;
+			}
+		}
 	}
 	// .main-slider__body
 	&__body {
+		padding: 140px 0px 0px 0px;
+		position: relative;
+		z-index: 2;
+		@media (max-width: ($md2+px)) {
+			padding: 80px 0px 0px 0px;
+		}
+		@media (max-width: ($md3+px)) {
+			padding: 50px 0px 0px 0px;
+		}
+		@media (min-width: ($md2+px)) {
+			display: flex;
+		}
 	}
 	// .main-slider__content
 	&__content {
+		flex: 0 0 calc(494 / 1240 * 100%);
 	}
 	// .main-slider__slider
 	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
 	}
 }
 .content-main {
+	position: relative;
+	z-index: 1;
+	padding-right: 15px;
+	padding-left: 15px;
+	@include adaptiv-value("padding-top", 60, 15, 1);
+	@include adaptiv-value("padding-bottom", 60, 15, 1);
+	background-color: rgba(255, 255, 255, 0.72);
+	@media (min-width: ($md2+px)) {
+		@include adaptiv-value("padding", 60, 1, 1);
+		background-color: rgba(255, 255, 255, 0.9);
+		// Если браузер поддерживает backdrop-filter
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+	}
 	// .content-main__title
 	&__title {
+		@include adaptiv-value("font-size", 56, 24, 1);
+		font-weight: 700;
+		line-height: 120%; /* 67.2px */
+		&:not(:last-child) {
+			margin: 0px 0px calc(16px / 56px * 1em) 0px;
+		}
 	}
 	// .content-main__text
 	&__text {
+		@include adaptiv-value("font-size", 20, 16, 1);
+		font-weight: 500;
+		color: $grayColor;
+		line-height: 150%;
+		&:not(:last-child) {
+			margin: 0px 0px calc(48px / 20px * 1em) 0px;
+		}
 	}
 	// .content-main__button
 	&__button {
+		@include adaptiv-value("min-height", 78, 45, 1);
+		@include adaptiv-value("font-size", 20, 16, 1);
+		font-weight: 600;
+		background-color: $orangeColor;
+		color: #fff;
+		width: 100%;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #e55f0c;
+			}
+		}
 	}
 }
 .slider-main {
@@ -156,17 +229,6 @@ body {
 	&__arrows {
 	}
 }
-.slider-arrows {
-}
-.slider-arrow {
-	// .slider-arrow_prev
-	&_prev {
-	}
-	// .slider-arrow_next
-	&_next {
-	}
-}
-
 //<ХЛЕБНЫЕ КРОШКИ>======================================================================
 /* .breadcrumbs {
 	overflow: auto;
