@@ -72,17 +72,17 @@
 //Инициализация и Настройки слайдера 1
 if (document.querySelector('.slider-main__body')) {
 	let mainSwiper = new Swiper('.slider-main__body', {
-		observer: true,
-		observeParents: true,
-		slidesPerView: 0,
-		spaceBetween: 32,
+		// observer: true,
+		// observeParents: true,
+		// slidesPerView: 0,
+		// spaceBetween: 32,
 		// autoHeight: true,
-		watchOverflow: true,
+		// watchOverflow: true,
 		speed: 800,
 		// loop: true,
 		// loopAdditionalSlides: 1,
-		preloadImages: false,
-		parallax: true,
+		// preloadImages: false,
+		// parallax: true,
 		// Dotts
 		pagination: {
 			el: '.controls-slider-main__dotts',
@@ -90,8 +90,8 @@ if (document.querySelector('.slider-main__body')) {
 		},
 		// Arrows
 		navigation: {
-			nextEl: 'slider-arrow_next',
-			prevEl: 'slider-arrow_prev',
+			nextEl: '.slider-arrow_next',
+			prevEl: '.slider-arrow_prev',
 		},
 	});
 }
