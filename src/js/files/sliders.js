@@ -1,47 +1,47 @@
 // import Swiper from '../libs/swiper-bundle.js';
 
 //<BILD-SWIPER>======================================================================
-// let sliders = document.querySelectorAll('._swiper');
-// if (sliders.length > 0) {
-// 	for (let index = 0; index < sliders.length; index++) {
-// 		let slider = sliders[index];
-// 		if (!slider.classList.contains('swiper-bild')) {
-// 			let slider_items = slider.children;
-// 			if (slider_items) {
-// 				for (let index = 0; index < slider_items.length; index++) {
-// 					let el = slider_items[index];
-// 					el.classList.add('swiper-slide');
-// 				}
-// 			}
-// 			// ветка Слайдов с содержимым mainslider__slide(swiper-slide) и глубже
-// 			let slider_content = slider.innerHTML;
-// 			// let slider_wrapper = element('div', ['swiper-wrapper'], slider_content);
-// 			// создаем пустой див
-// 			let slider_wrapper = document.createElement('div');
-// 			// даем этому диву класс swiper-wrapper
-// 			slider_wrapper.classList.add('swiper-wrapper');
-// 			// помещаем ветку Слайдов внутрь оболочки swiper-wrapper
-// 			slider_wrapper.innerHTML = slider_content;
-// 			// затираем всё что было внутри mainslider__body
-// 			slider.innerHTML = '';
-// 			// в пустой блок mainslider__body вставляем оболочку swiper-wrapper
-// 			slider.appendChild(slider_wrapper);
-// 			// даем клас swiper-bild
-// 			slider.classList.add('swiper-bild');
-// 			if (slider.classList.contains('_swiper_scroll')) {
-// 				let sliderScroll = document.createElement('div');
-// 				sliderScroll.classList.add('swiper-scrollbar');
-// 				slider.appendChild(sliderScroll);
-// 			}
-// 		}
-// 		if (slider.classList.contains('_gallery')) {
-// 			// slider.data('ligthGallery').destroy(true);
-// 		}
-// 	}
-// 	sliders_bild_callback();
-// 	// }
-// }
-// function sliders_bild_callback(params) { }
+let sliders = document.querySelectorAll('.swiper');
+if (sliders.length > 0) {
+	for (let index = 0; index < sliders.length; index++) {
+		let slider = sliders[index];
+		if (!slider.classList.contains('swiper-bild')) {
+			let slider_items = slider.children;
+			if (slider_items) {
+				for (let index = 0; index < slider_items.length; index++) {
+					let el = slider_items[index];
+					el.classList.add('swiper-slide');
+				}
+			}
+			// ветка Слайдов с содержимым mainslider__slide(swiper-slide) и глубже
+			let slider_content = slider.innerHTML;
+			// let slider_wrapper = element('div', ['swiper-wrapper'], slider_content);
+			// создаем пустой див
+			let slider_wrapper = document.createElement('div');
+			// даем этому диву класс swiper-wrapper
+			slider_wrapper.classList.add('swiper-wrapper');
+			// помещаем ветку Слайдов внутрь оболочки swiper-wrapper
+			slider_wrapper.innerHTML = slider_content;
+			// затираем всё что было внутри mainslider__body
+			slider.innerHTML = '';
+			// в пустой блок mainslider__body вставляем оболочку swiper-wrapper
+			slider.appendChild(slider_wrapper);
+			// даем клас swiper-bild
+			slider.classList.add('swiper-bild');
+			if (slider.classList.contains('_swiper_scroll')) {
+				let sliderScroll = document.createElement('div');
+				sliderScroll.classList.add('swiper-scrollbar');
+				slider.appendChild(sliderScroll);
+			}
+		}
+		if (slider.classList.contains('_gallery')) {
+			// slider.data('ligthGallery').destroy(true);
+		}
+	}
+	sliders_bild_callback();
+	// }
+}
+function sliders_bild_callback(params) { }
 //</BILD-SWIPER>======================================================================
 
 // const sliderScrollItems = document.querySelectorAll('._swiper_scroll');
@@ -75,11 +75,11 @@ if (document.querySelector('.slider-main__body')) {
 		// observer: true,
 		// observeParents: true,
 		// slidesPerView: 0,
-		// spaceBetween: 32,
+		spaceBetween: 32,
 		// autoHeight: true,
 		// watchOverflow: true,
 		speed: 800,
-		// loop: true,
+		loop: true,
 		// loopAdditionalSlides: 1,
 		// preloadImages: false,
 		// parallax: true,
@@ -90,8 +90,8 @@ if (document.querySelector('.slider-main__body')) {
 		},
 		// Arrows
 		navigation: {
-			nextEl: '.slider-arrow_next',
-			prevEl: '.slider-arrow_prev',
+			nextEl: '.slider-main .slider-arrow_next',
+			prevEl: '.slider-main .slider-arrow_prev',
 		},
 	});
 }
