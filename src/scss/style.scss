@@ -95,8 +95,14 @@ body {
 	flex: 1 1 auto;
 	// .page__main-slider
 	&__main-slider {
+		@include adaptiv-value("margin-bottom", 88, 30, 1);
+	}
+	// .page__advantages
+	&__advantages {
+		@include adaptiv-value("margin-bottom", 88, 30, 1);
 	}
 }
+//======================================================================
 .main-slider {
 	background-color: #fcf8f3;
 	// .main-slider__container
@@ -310,6 +316,51 @@ body {
 		@media (max-width: ($md2+px)) {
 			display: none;
 		}
+	}
+}
+//======================================================================
+
+.advantages {
+	// .advantages__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	// .advantages__item
+	&__item {
+		display: inline-grid;
+		padding: 15px 0px;
+		grid-template: auto auto/ 85px 1fr;
+		@media (max-width: ($md2+px)) {
+			min-width: 280px;
+		}
+		@media (max-width: ($md3+px)) {
+			grid-template: auto auto/ auto 1fr;
+		}
+	}
+	// .advantages__icon
+	&__icon {
+		text-align: center;
+		align-self: center;
+		grid-row: span 2;
+		@media (max-width: ($md3+px)) {
+			padding: 0px 15px 0px 0px;
+		}
+	}
+	// .advantages__title
+	&__title {
+		@include adaptiv-value("font-size", 18, 14, 1);
+		font-weight: 600;
+		line-height: 150%; /* 27px */
+		margin: 0px 0px calc(2px / 18px * 1em) 0px;
+	}
+	// .advantages__text
+	&__text {
+		color: $grayColor;
+		font-weight: 500;
+		line-height: 150%; /* 24px */
 	}
 }
 //<ХЛЕБНЫЕ КРОШКИ>======================================================================
