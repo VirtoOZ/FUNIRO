@@ -135,6 +135,9 @@ body {
 		align-self: flex-start;
 		flex: 0 0 calc(494 / 1240 * 100%);
 		@include adaptiv-value("margin-bottom", 80, 14, 1);
+		@media (max-width: ($md2+px)) {
+			margin: 0px -15px;
+		}
 	}
 	// .main-slider__slider
 	&__slider {
@@ -202,16 +205,26 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	@media (max-width: ($md2+px)) {
+		align-items: stretch;
+		flex-direction: column-reverse;
+	}
 	// .slider-main__controls
 	&__controls {
 		align-self: stretch;
 		margin: 0px 0px 20px 0px;
+		@media (max-width: ($md2+px)) {
+			margin: 10px 0px;
+		}
 	}
 	// .slider-main__body
 	&__body {
 		overflow: visible;
 		@media (min-width: ($md2+px)) {
 			@include adaptiv-value("width", 934, 290, 1);
+		}
+		@media (max-width: ($md2+px)) {
+			margin: 0px -15px;
 		}
 	}
 	// .slider-main__slide
@@ -224,7 +237,6 @@ body {
 	}
 	// .slider-main__content
 	&__content {
-		position: absolute;
 		display: flex;
 		flex-direction: column;
 		color: inherit;
@@ -234,7 +246,6 @@ body {
 		@include adaptiv-value("padding", 24, 14, 1);
 		background: rgba(255, 255, 255, 0.9);
 		@media (min-width: ($md3+px)) {
-			// position: absolute;
 			min-width: 350px;
 			@include adaptiv-value("bottom", 40, 0, 1);
 			@include adaptiv-value("right", 40, 0, 1);
@@ -282,14 +293,22 @@ body {
 }
 .controls-slider-main {
 	display: flex;
-	// justify-content: space-between;
 	align-items: center;
 	// .controls-slider-main__dotts
 	&__dotts {
 		flex: 1 1 auto;
+		@media (min-width: ($md2+px)) {
+			padding: 0px 20px 0px 0px;
+		}
+		@media (max-width: ($md2+px)) {
+			justify-content: center;
+		}
 	}
 	// .controls-slider-main__arrows
 	&__arrows {
+		@media (max-width: ($md2+px)) {
+			display: none;
+		}
 	}
 }
 //<ХЛЕБНЫЕ КРОШКИ>======================================================================

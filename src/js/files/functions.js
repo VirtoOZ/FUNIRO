@@ -30,8 +30,6 @@ isWebp();
 export function ibg() {
 	// if (isIE()) {
 	let ibg = document.querySelectorAll('._ibg');
-	console.log(ibg);
-
 	for (let i = 0; i < ibg.length; i++) {
 		if (ibg[i].querySelector('img')) {
 			ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
