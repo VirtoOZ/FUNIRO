@@ -1,7 +1,7 @@
-// import Swiper from '../libs/swiper-bundle.js';
+// import Swiper from '../libs/swiper-bundle.min.js';
 
 //<BILD-SWIPER>======================================================================
-let sliders = document.querySelectorAll('.swiper');
+let sliders = document.querySelectorAll('._swiper');
 if (sliders.length > 0) {
 	for (let index = 0; index < sliders.length; index++) {
 		let slider = sliders[index];
@@ -72,17 +72,17 @@ function sliders_bild_callback(params) { }
 //Инициализация и Настройки слайдера 1
 if (document.querySelector('.slider-main__body')) {
 	let mainSwiper = new Swiper('.slider-main__body', {
-		// observer: true,
-		// observeParents: true,
-		// slidesPerView: 0,
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
 		spaceBetween: 32,
 		// autoHeight: true,
-		// watchOverflow: true,
+		watchOverflow: true,
 		speed: 800,
 		loop: true,
-		// loopAdditionalSlides: 1,
-		// preloadImages: false,
-		// parallax: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
 		// Dotts
 		pagination: {
 			el: '.controls-slider-main__dotts',
@@ -92,7 +92,7 @@ if (document.querySelector('.slider-main__body')) {
 		navigation: {
 			nextEl: '.slider-main .slider-arrow_next',
 			prevEl: '.slider-main .slider-arrow_prev',
-		},
+		}
 	});
 }
 //</INIT-SLIDER-1>======================================================================
