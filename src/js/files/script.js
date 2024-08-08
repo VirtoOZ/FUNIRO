@@ -5,6 +5,7 @@ window.onload = function () { //когда весь контент загруз�
 	function documentActions(e) {
 		const targetElement = e.target; // кладем в переменную нажатый объект
 		if (window.innerWidth > 768 && isMobile.any()) { // если ширина окна меньше 768 и это мобилка
+			// hover для мобилки
 			if (targetElement.classList.contains('menu__arrow')) {
 				targetElement.closest('.menu__item').classList.toggle('_hover');
 			}
@@ -12,13 +13,24 @@ window.onload = function () { //когда весь контент загруз�
 				_removeClasses(document.querySelectorAll('.menu__item._hover'), '_hover');
 			}
 		}
+		// проработка поля поиска в шапке
 		if (targetElement.classList.contains('search-form__icon')) {
 			document.querySelector('.search-form').classList.toggle('_active');
 		} else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
 			document.querySelector('.search-form').classList.remove('_active');
-
 		}
 	}
+	// работа c шабкой при скролле
+	let headerElement = document.querySelector('.header');
+	const callback = function (entries, observer) {
+		if (entries[0].isIntersecting) {
+			headerElement.classList.remove('_scroll');
+		} else {
+			headerElement.classList.add('_scroll');
+		}
+	};
+	const headerObserver = new IntersectionObserver(callback);
+	headerObserver.observe(headerElement);
 }
 //======================================================================
 function _removeClasses(object, classToRemove) {

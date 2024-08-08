@@ -247,6 +247,7 @@ body {
 		background: rgba(255, 255, 255, 0.9);
 		@media (min-width: ($md3+px)) {
 			min-width: 350px;
+			position: absolute;
 			@include adaptiv-value("bottom", 40, 0, 1);
 			@include adaptiv-value("right", 40, 0, 1);
 			background-color: rgba(255, 255, 255, 0.9);
