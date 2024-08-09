@@ -123,6 +123,16 @@
 	// 	&._fw {
 	// 		width: 100%;
 	// 	}
+	&_white {
+		color: $orangeColor;
+		background-color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $orangeColor;
+				color: #fff;
+			}
+		}
+	}
 }
 //</BUTTON()>======================================================================
 
