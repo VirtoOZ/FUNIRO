@@ -14,6 +14,7 @@ export const path = {
 		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`,
 		videos: `${buildFolder}/videos/`,
+		json: `${buildFolder}/json/`,
 
 	},
 	// объект путей к исходным файлам
@@ -29,6 +30,7 @@ export const path = {
 		// html: `${srcFolder}/*.pug`, // Для Pug`, путь к папке в которой есть файлы html
 		files: `${srcFolder}/files/**/*.*`, //путь к папке которую хотим копировать
 		videos: `${srcFolder}/videos/*.*`, //путь к папке которую хотим копировать
+		json: `${srcFolder}/json/*.*`, //путь к папке которую хотим копировать
 	},
 	// объект путей к файлам за которыми нужно следить
 	watch: {
@@ -39,6 +41,7 @@ export const path = {
 		// images: `${srcFolder}/img/**/*.+(jpg|jpeg|png|gif|webp|ico|svg)`, //путь к папке c файлом стилей
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico,svg}`, //путь к папке c файлом стилей
 		files: `${srcFolder}/files/**/*.*`, //путь к файлам которые необходимо отслеживать на изменение
+		json: `${srcFolder}/json/*.*`, //путь к файлам которые необходимо отслеживать на изменение
 	},
 	clean: buildFolder,
 	buildFolder: buildFolder,
