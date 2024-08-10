@@ -1,3 +1,21 @@
+//<ANIM-SLIDE>================================================================
+/*   Анимированное плавное открытие и закрытие блока.
+Может применяться к меню или выпадающему списку
+Выписано из видео фрилансера.
+В CSS нужно установить display: none; для родителя.
+*/
+// SlideUP
+// import { _slideUp } from "forms.js";
+// SlideDown
+// import { _slideDown } from "forms.js";
+//SlideToggLe
+// import { _slideToggle } from "forms.js";
+//</ANIM-SLIDE>================================================================
+//<isMobile>================================================================
+//Проверка на каком устройстве работаем
+import { isMobile } from "./functions.js";
+//</isMobile>================================================================
+
 window.onload = function () { //когда весь контент загрузится
 	document.addEventListener("click", documentActions);
 
@@ -13,18 +31,25 @@ window.onload = function () { //когда весь контент загруз�
 				_removeClasses(document.querySelectorAll('.menu__item._hover'), '_hover');
 			}
 		}
-		// проработка поля поиска в шапке
+		// поиск в шапке, добавляем класс _active для кнопки поиска
 		if (targetElement.classList.contains('search-form__icon')) {
 			document.querySelector('.search-form').classList.toggle('_active');
 		} else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
 			document.querySelector('.search-form').classList.remove('_active');
 		}
-
+		// подгрузка товаров из JSON, отлавливаем нажатие на кнопку more
 		if (targetElement.classList.contains('products__more')) {
 			getProducts(targetElement);
 			e.preventDefault();
 		}
+		// добавление товаров в корзину, ловим нажатие на кнопке Add to card
+		if (targetElement.classList.contains('actions-product__button')) {
+			const productId = targetElement.closest('.item-product').dataset.pid; // кладем в переменную нажатый объект
+			addToCard(targetElement, productId);
+			e.preventDefault();
+		}
 	}
+	//======================================================================
 	// работа c шабкой при скролле
 	let headerElement = document.querySelector('.header');
 	const callback = function (entries, observer) {
@@ -37,7 +62,7 @@ window.onload = function () { //когда весь контент загруз�
 	const headerObserver = new IntersectionObserver(callback);
 	headerObserver.observe(headerElement);
 	//======================================================================
-	//Load More Products
+	//Load More Products функция получения товаров из JSON
 	async function getProducts(button) {
 		if (!button.classList.contains('_hold')) {
 			button.classList.add('_hold');
@@ -55,6 +80,8 @@ window.onload = function () { //когда весь контент загруз�
 			}
 		}
 	}
+	//======================================================================
+	//сборка шаблона товаров 
 	function loadProducts(data) {
 		const productsItems = document.querySelector('.products__items');
 
@@ -146,8 +173,24 @@ window.onload = function () { //когда весь контент загруз�
 		});
 	}
 	//======================================================================
+	// добавление товаров в корзину
+	function addToCard(productButton, productId) {
+		if (!productButton.classList.contains('_hold')) {//если у кнопки нет класса _hold
+			productButton.classList.add('_hold');
+			productButton.classList.add('_fly');
+			let cart = document.querySelector('.cart-header__icon');
+			let product = document.querySelector(`[data-pid="${productId}"]`);
+			let productImage = document.querySelector('.item-product__image');
 
-
+			// для эффекта летящего товара в корзину нужно сделать клон картинки
+			let productImageFly = productImage.cloneNode(true);
+		}
+	}
+	//======================================================================
+	// обновление корзины
+	function updateCart(productButton, productId, productAdd = true) {
+	}
+	//======================================================================
 }
 //======================================================================
 function _removeClasses(object, classToRemove) {
@@ -183,20 +226,3 @@ if (iconMenu) {//Проверяем есть ли icon-menu
 // });
 //</BURGER SIDE-MENU>=================================
 
-//<ANIM-SLIDE>================================================================
-/*   Анимированное плавное открытие и закрытие блока.
-Может применяться к меню или выпадающему списку
-Выписано из видео фрилансера.
-В CSS нужно установить display: none; для родителя.
-*/
-// SlideUP
-import { _slideUp } from "./functions.js";
-// SlideDown
-import { _slideDown } from "./functions.js";
-//SlideToggLe
-import { _slideToggle } from "./functions.js";
-//</ANIM-SLIDE>================================================================
-//<isMobile>================================================================
-//Проверка на каком устройстве работаем
-import { isMobile } from "./functions.js";
-//</isMobile>================================================================
