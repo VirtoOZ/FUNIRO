@@ -278,6 +278,7 @@ window.onload = function () { //когда весь контент загруз�
 			// чтобы разрешить добавить этот же товар ещё раз
 			productButton.classList.remove('_hold');
 		} else {
+			// удаление товара из корзины
 			const cartProductQuantity = cartPropduct.querySelector('.cart-list__quantity span');
 			cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
 			if (!parseInt(cartProductQuantity.innerHTML)) {

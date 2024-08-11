@@ -92,10 +92,39 @@ if (document.querySelector('.slider-main__body')) {
 		navigation: {
 			nextEl: '.slider-main .slider-arrow_next',
 			prevEl: '.slider-main .slider-arrow_prev',
-		}
+		},
 	});
 }
 //</INIT-SLIDER-1>======================================================================
+
+//<INIT-SLIDER-2>======================================================================
+//Инициализация и Настройки слайдера 1
+if (document.querySelector('.slider-rooms__body')) {
+	let roomsSwiper = new Swiper('.slider-rooms__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		// autoHeight: true,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+		// Dotts
+		pagination: {
+			el: '.slider-rooms__dotts',
+			clickable: true,
+		},
+		// Arrows
+		navigation: {
+			nextEl: '.slider-rooms .slider-arrow_next',
+			prevEl: '.slider-rooms .slider-arrow_prev',
+		},
+	});
+}
+//</INIT-SLIDER-2>======================================================================
 
 /* //шаблон с Настройками слайдера
 if (document.querySelector('.slider-rooms__body')) {

@@ -214,8 +214,14 @@ ol.counter {
 //======================================================================
 
 //<SWIPER>======================================================================
-.swiper {
-	// overflow: hidden;
+._swiper {
+	// margin-left: auto;
+	// margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
 }
 .slider-arrows {
 	display: grid;
