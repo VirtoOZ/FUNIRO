@@ -48,6 +48,21 @@ window.onload = function () { //когда весь контент загруз�
 			addToCard(targetElement, productId);
 			e.preventDefault();
 		}
+		// При нажатии на значек корзины в шапке открываем .cart-header
+		if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
+			if (document.querySelector('.cart-list').children.length > 0) {
+				document.querySelector('.cart-header').classList.toggle('_active');
+			}
+			e.preventDefault();//при клике на другое место, закрываем окно c товарами
+		} else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__button')) {
+			document.querySelector('.cart-header').classList.remove('_active');
+		}
+		// функция удаления из корзины
+		if (targetElement.classList.contains('cart-list__delete')) {
+			const productId = targetElement.closest('.cart-list__item').dataset.cartPid; // кладем в переменную нажатый объект
+			updateCart(targetElement, productId, false);//false говорит о том что не добавляем, а удаляем объект
+			e.preventDefault();
+		}
 	}
 	//======================================================================
 	// работа c шабкой при скролле
@@ -81,7 +96,7 @@ window.onload = function () { //когда весь контент загруз�
 		}
 	}
 	//======================================================================
-	//сборка шаблона товаров 
+	//сборка шаблона товаров полученных из JSON
 	function loadProducts(data) {
 		const productsItems = document.querySelector('.products__items');
 
@@ -173,24 +188,112 @@ window.onload = function () { //когда весь контент загруз�
 		});
 	}
 	//======================================================================
-	// добавление товаров в корзину
+	// Добавление товаров в корзину
 	function addToCard(productButton, productId) {
 		if (!productButton.classList.contains('_hold')) {//если у кнопки нет класса _hold
 			productButton.classList.add('_hold');
 			productButton.classList.add('_fly');
 			let cart = document.querySelector('.cart-header__icon');
 			let product = document.querySelector(`[data-pid="${productId}"]`);
-			let productImage = document.querySelector('.item-product__image');
+			let productImage = product.querySelector('.item-product__image');
+
 
 			// для эффекта летящего товара в корзину нужно сделать клон картинки
 			let productImageFly = productImage.cloneNode(true);
+
+			let productImageFlyWidth = productImage.offsetWidth;//ширина оригинальной картинки
+			let productImageFlyHeight = productImage.offsetHeight;//высота
+			let productImageFlyTop = productImage.getBoundingClientRect().top;//позицию сверху
+			let productImageFlyLeft = productImage.getBoundingClientRect().left;//позицию слева
+
+			// применяем полученные размеры и позиции я для клона
+			productImageFly.setAttribute('class', '_flyImage _ibg');//меняем класс на fly и ibg
+			productImageFly.style.cssText =
+				`
+				width:${productImageFlyWidth}px;
+				height: ${productImageFlyHeight}px;
+				top: ${productImageFlyTop}px;
+				left: ${productImageFlyLeft}px;
+			`;
+			document.body.append(productImageFly);//вставляем копию картинки в конец body
+
+			let cartFlyTop = cart.getBoundingClientRect().top;//ширина оригинальной картинки
+			let cartFlyLeft = cart.getBoundingClientRect().left;//ширина оригинальной картинки
+
+			// по мере полета картинки будут изменяться параметры
+			productImageFly.style.cssText =
+				`
+				width: 0px;
+				height: 0px;
+				top: ${cartFlyTop}px;
+				left: ${cartFlyLeft}px;
+				opacity: 0;
+			`;
+			// вывод на значке корзины колличества товаров нужно после того, 
+			// когда товар до нее долетит
+			productImageFly.addEventListener('transitionend', function () {
+				if (productButton.classList.contains('_fly')) {
+					productImageFly.remove();
+					updateCart(productButton, productId);
+					productButton.classList.remove('_fly');
+				}
+			});
 		}
+
 	}
 	//======================================================================
-	// обновление корзины
+	// обновление корзины. Добавляет и удаляет товары
 	function updateCart(productButton, productId, productAdd = true) {
+		let cart = document.querySelector('.cart-header');
+		let cartIcon = cart.querySelector('.cart-header__icon');
+		let cartQuantity = cartIcon.querySelector('span');
+		let cartPropduct = document.querySelector(`[data-cart-pid="${productId}"]`);
+		let cartList = document.querySelector('.cart-list');
+
+		// Добавляем товары
+		if (productAdd) {
+			if (cartQuantity) {
+				cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+			} else {
+				cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
+			}
+			if (!cartPropduct) {
+				let propduct = document.querySelector(`[data-pid="${productId}"]`);
+				let cartPropductImage = propduct.querySelector('.item-product__image').innerHTML;
+				let cartPropductTitle = propduct.querySelector('.item-product__title').innerHTML;
+				let cartPropductContent = `
+				<a href="" class="cart-list__image _ibg">${cartPropductImage}</a>
+				<div calss="cart-list__body">
+					<a href="" class="cart-list__title">${cartPropductTitle}</a>
+					<div class="cart-list__quantity">Quantity: <span>1</span></div>
+					<a href="" class="cart-list__delete">Delete</a>
+				</div>`;
+				cartList.insertAdjacentHTML('beforeend', `<li data-cart-pid="${productId}" class="cart-list__item">${cartPropductContent}</li>`);
+			} else {
+				let cartPropductQuantity = cartPropduct.querySelector('.cart-list__quantity span');
+				cartPropductQuantity.innerHTML = ++cartPropductQuantity.innerHTML;
+			}
+
+			// после всех действий удаляем блокировку _hold c кнопки добавления, 
+			// чтобы разрешить добавить этот же товар ещё раз
+			productButton.classList.remove('_hold');
+		} else {
+			const cartProductQuantity = cartPropduct.querySelector('.cart-list__quantity span');
+			cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+			if (!parseInt(cartProductQuantity.innerHTML)) {
+				cartPropduct.remove();
+			}
+			const cartQuantityValue = --cartQuantity.innerHTML;
+
+			if (cartQuantityValue) {
+				cartQuantity.innerHTML = cartQuantityValue;
+			} else {
+				cartQuantity.remove();
+				cart.classList.remove('_active');
+			}
+		}
+		//======================================================================
 	}
-	//======================================================================
 }
 //======================================================================
 function _removeClasses(object, classToRemove) {
