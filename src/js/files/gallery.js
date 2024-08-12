@@ -37,7 +37,7 @@
 // import '@scss/libs/gallery/lightgallery-bundle.scss';
 
 // Запуск
-const galleries = document.querySelectorAll('[data-gallery]');
+const galleries = document.querySelectorAll('._gallery');
 if (galleries.length) {
 	let galleyItems = [];
 	galleries.forEach(gallery => {

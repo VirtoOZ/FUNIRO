@@ -305,6 +305,66 @@ function _removeClasses(object, classToRemove) {
 }
 //======================================================================
 
+//GALLERY======================================================================
+// При нахождении курсора на галерее и смещении относительно центра,
+// галерея будет двигаться навстречу курсору
+let furniture = document.querySelector('.furniture__body');
+if (furniture && !isMobile.any()) {
+	const furnitureItems = document.querySelector('.furniture__items');
+	const furnitureColumn = document.querySelectorAll('.furniture__column');
+	// скорость анимации
+	const speed = furniture.dataset.speed;
+
+	let positionX = 0;
+	let coordXprocent = 0;
+
+	function setMouseGalleryStyle() {
+		let furnitureItemsWidth = 0;
+		// перебор колонок
+		furnitureColumn.forEach(element => {
+			// и выщитываем общюю ширину всех колонок
+			furnitureItemsWidth += element.offsetWidth;
+		});
+
+		// получаем разницу ширин всего контента и видимой части
+		const furnitureDifferent = furnitureItemsWidth - furniture.offsetWidth;
+
+		// смещение положения курсора
+		const distX = Math.floor(coordXprocent - positionX);
+		// учитываем скорость 
+		positionX = positionX + (distX * speed);
+		// позиция относительно разницы ширин
+		let position = furnitureDifferent / 200 * positionX;
+
+		// обращаемся к объекту который будем двигать
+		furnitureItems.style.cssText = `transform: translate3d(${-position}px,0,0);`;
+
+		// запуск функции передавая ее в requestAnimationFrame
+		// функция работает только тогда, когда нам есть что двигать
+		if (Math.abs(distX) > 0) {
+			requestAnimationFrame(setMouseGalleryStyle);
+		} else {
+			furniture.classList.remove('_init');
+		}
+	}
+	furniture.addEventListener("mousemove", function (e) {
+		// получение видимой ширины
+		const furnitureWidth = furniture.offsetWidth;
+
+		// вычисляем ноль когда курсор по середине
+		const coordX = e.pageX - furnitureWidth / 2;
+
+		//Когда курсор в середине это 0 а когда в конце это 100% получаем проценты
+		coordXprocent = coordX / furnitureWidth * 200;
+
+		// запускаем анимацию только тогда когда у боди нет класса _init
+		if (!furniture.classList.contains('_init')) {
+			requestAnimationFrame(setMouseGalleryStyle);
+			furniture.classList.add('_init');
+		}
+	})
+}
+//======================================================================
 //<BURGER>=================================
 const iconMenu = document.querySelector('.icon-menu');//находим класс icon-menu
 const menuBody = document.querySelector('.menu__body');//находим класс menu__body
