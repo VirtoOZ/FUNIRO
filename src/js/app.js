@@ -11,5 +11,5 @@ import './files/functions.js';
 import './files/sliders.js';
 import './files/forms.js';
 import './files/popup.js';
-// import './files/regular.js';
+import './files/gallery.js';
 //======================================================================

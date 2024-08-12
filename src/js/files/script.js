@@ -329,4 +329,3 @@ if (iconMenu) {//Проверяем есть ли icon-menu
 // 	_slideToggle(menuPageBody, 500);
 // });
 //</BURGER SIDE-MENU>=================================
-
