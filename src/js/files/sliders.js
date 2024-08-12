@@ -98,7 +98,7 @@ if (document.querySelector('.slider-main__body')) {
 //</INIT-SLIDER-1>======================================================================
 
 //<INIT-SLIDER-2>======================================================================
-//Инициализация и Настройки слайдера 1
+//Инициализация и Настройки слайдера 2
 if (document.querySelector('.slider-rooms__body')) {
 	let roomsSwiper = new Swiper('.slider-rooms__body', {
 		observer: true,
@@ -125,6 +125,49 @@ if (document.querySelector('.slider-rooms__body')) {
 	});
 }
 //</INIT-SLIDER-2>======================================================================
+
+//<INIT-SLIDER-3>======================================================================
+//Инициализация и Настройки слайдера 3
+if (document.querySelector('.slider-tips__body')) {
+	let tipsSwiper = new Swiper('.slider-tips__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 3,
+		spaceBetween: 32,
+		// autoHeight: true,
+		watchOverflow: true,
+		speed: 800,
+		loop: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+		// Dotts
+		pagination: {
+			el: '.slider-tips__dotts',
+			clickable: true,
+		},
+		// Arrows
+		navigation: {
+			nextEl: '.slider-tips .slider-arrow_next',
+			prevEl: '.slider-tips .slider-arrow_prev',
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1.1,
+				spaceBetween: 15,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			992: {
+				slidesPerView: 3,
+				spaceBetween: 32,
+			},
+		},
+	});
+}
+//</INIT-SLIDER-3>======================================================================
 
 /* //шаблон с Настройками слайдера
 if (document.querySelector('.slider-rooms__body')) {

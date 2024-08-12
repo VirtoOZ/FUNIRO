@@ -109,6 +109,11 @@ body {
 	&__rooms {
 		@include adaptiv-value("padding-top", 44, 30, 1);
 		@include adaptiv-value("padding-bottom", 44, 30, 1);
+		@include adaptiv-value("margin-bottom", 44, 30, 1);
+	}
+	// .page__tips
+	&__tips {
+		@include adaptiv-value("margin-bottom", 44, 30, 1);
 	}
 }
 //======================================================================
@@ -745,18 +750,101 @@ body {
 	&__text {
 	}
 }
-
-.slider-arrows {
+//======================================================================
+.tips {
+	// .tips__container
+	&__container {
+	}
+	// .tips__body
+	&__body {
+	}
+	// .tips__title
+	&__title {
+	}
+	// .tips__slider
+	&__slider {
+	}
 }
-.slider-arrow {
-	// .slider-arrow_white
-	&_white {
+.slider-tips {
+	position: relative;
+	// .slider-tips__body
+	&__body {
+		position: relative;
+		@include adaptiv-value("margin-left", -32, -15, 1);
+		@include adaptiv-value("margin-right", -32, -15, 1);
+		@include adaptiv-value("padding", 32, 15, 1);
 	}
-	// .slider-arrow_prev
-	&_prev {
+	// .slider-tips__slide
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		transition: box-shadow 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+			}
+		}
 	}
-	// .slider-arrow_next
-	&_next {
+	// .slider-tips__image
+	&__image {
+		padding: 0px 0px 64.2% 0px;
+	}
+	// .slider-tips__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		padding: 15px;
+		align-items: flex-start;
+	}
+	// .slider-tips__arrows
+	&__arrows {
+		position: absolute;
+		width: calc(100% - 48px);
+		// height: 100%;
+		top: 50%;
+		left: 24px;
+		transform: translate(0%, -50%);
+		z-index: 5;
+		justify-content: space-between;
+		pointer-events: none;
+		@media (min-width: ($md1+px)) {
+			left: -24px;
+			width: calc(100% + 48px);
+		}
+		@media (max-width: ($md4+px)) {
+			display: none;
+		}
+	}
+	// .slider-tips__dotts
+	&__dotts {
+		justify-content: center;
+		@include adaptiv-value("padding-top", 8, 0, 1);
+	}
+}
+.content-tips {
+	// .content-tips__title
+	&__title {
+		flex: 1 1 auto;
+		color: inherit;
+		font-weight: 600;
+		@include adaptiv-value("font-size", 24, 18, 1);
+		line-height: 120%;
+		&:not(:last-child) {
+			margin: 0px 0px calc(8px / 24px * 1em) 0px;
+		}
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $orangeColor;
+			}
+		}
+	}
+	// .content-tips__text
+	&__text {
+		color: $grayColor;
+		font-size: 14px;
+		line-height: 120%;
 	}
 }
 
