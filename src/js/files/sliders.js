@@ -93,6 +93,11 @@ if (document.querySelector('.slider-main__body')) {
 			nextEl: '.slider-main .slider-arrow_next',
 			prevEl: '.slider-main .slider-arrow_prev',
 		},
+		// Autoplay
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: true,
+		},
 	});
 }
 //</INIT-SLIDER-1>======================================================================
@@ -121,6 +126,11 @@ if (document.querySelector('.slider-rooms__body')) {
 		navigation: {
 			nextEl: '.slider-rooms .slider-arrow_next',
 			prevEl: '.slider-rooms .slider-arrow_prev',
+		},
+		// Autoplay
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: true,
 		},
 	});
 }
@@ -164,6 +174,11 @@ if (document.querySelector('.slider-tips__body')) {
 				slidesPerView: 3,
 				spaceBetween: 32,
 			},
+		},
+		// Autoplay
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: true,
 		},
 	});
 }
